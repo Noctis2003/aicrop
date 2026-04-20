@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="result-section">
+  <h2 style="text-align: center; margin-bottom: 2rem;">
+    <i class="fas fa-check-circle" style="color: var(--primary-color);"></i> Analysis Results
+  </h2>
+  
+  <div class="result-box">
+    <h3>Disease Diagnosis</h3>
+    <div style="font-size: 1.1rem; line-height: 1.8; color: white;">
+      {{ prediction }}
+    </div>
+  </div>
+
+  <div style="background: #fff3cd; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #ff9800;">
+    <p style="margin: 0; color: #333; line-height: 1.8;">
+      <strong><i class="fas fa-info-circle"></i> Important:</strong> This is an AI-based analysis. For critical plant health issues, please consult a local agricultural expert or plant pathologist for confirmation and professional treatment recommendations.
+    </p>
+  </div>
+
+  <div style="text-align: center; margin-top: 2rem;">
+    <a href="{{ url_for('disease_prediction') }}" class="btn btn-primary" style="margin-right: 1rem;">
+      <i class="fas fa-image"></i> Analyze Another Plant
+    </a>
+    <a href="{{ url_for('home') }}" class="btn" style="background: #e0e0e0; color: #333; font-weight: 600; padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none;">
+      <i class="fas fa-home"></i> Back to Home
+    </a>
+  </div>
+</div>
+
+{% endblock %}

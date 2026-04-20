@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="result-section">
+  <h2 style="text-align: center; margin-bottom: 2rem;">
+    <i class="fas fa-check-circle" style="color: var(--primary-color);"></i> Recommendation Complete
+  </h2>
+  
+  <div class="result-box">
+    <h3>Recommended Crop</h3>
+    <div class="result-value" style="font-size: 2.5rem; color: white; text-transform: capitalize;">
+      <i class="fas fa-leaf"></i> {{ prediction }}
+    </div>
+  </div>
+
+  <div style="background: #f0f9ff; padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--primary-color);">
+    <p style="margin: 0; color: #333; line-height: 1.8;">
+      <strong>This crop is well-suited for your farm's conditions.</strong><br>
+      Based on your soil composition, pH level, rainfall, and weather data, this crop will likely produce the best yield with optimal resource utilization.
+    </p>
+  </div>
+
+  <div style="text-align: center; margin-top: 2rem;">
+    <a href="{{ url_for('fertilizer_recommendation') }}" class="btn btn-primary" style="margin-right: 1rem;">
+      <i class="fas fa-flask"></i> Get Fertilizer Advice
+    </a>
+    <a href="{{ url_for('home') }}" class="btn" style="background: #e0e0e0; color: #333; font-weight: 600; padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none;">
+      <i class="fas fa-home"></i> Back to Home
+    </a>
+  </div>
+</div>
+
+{% endblock %}

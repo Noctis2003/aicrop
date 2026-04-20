@@ -1,0 +1,125 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="form-section">
+  <h2><i class="fas fa-wheat"></i> Crop Recommendation</h2>
+  <p style="text-align: center; color: #666; margin-bottom: 2rem;">
+    Enter your soil composition and location to get personalized crop recommendations
+  </p>
+
+  <form method="POST" action="{{ url_for('crop_prediction') }}">
+    <!-- Nitrogen Input -->
+    <div class="form-group">
+      <label for="Nitrogen"><i class="fas fa-flask"></i> Nitrogen (mg/kg)</label>
+      <input
+        type="number"
+        class="form-control"
+        id="Nitrogen"
+        name="nitrogen"
+        placeholder="e.g., 50"
+        step="0.1"
+        required
+      />
+      <small class="text-muted">Nitrogen content in your soil</small>
+    </div>
+
+    <!-- Phosphorous Input -->
+    <div class="form-group">
+      <label for="Phosphorous"><i class="fas fa-leaf"></i> Phosphorous (mg/kg)</label>
+      <input
+        type="number"
+        class="form-control"
+        id="Phosphorous"
+        name="phosphorous"
+        placeholder="e.g., 50"
+        step="0.1"
+        required
+      />
+      <small class="text-muted">Phosphorous content in your soil</small>
+    </div>
+
+    <!-- Potassium Input -->
+    <div class="form-group">
+      <label for="Pottasium"><i class="fas fa-droplet"></i> Potassium (mg/kg)</label>
+      <input
+        type="number"
+        class="form-control"
+        id="Pottasium"
+        name="pottasium"
+        placeholder="e.g., 50"
+        step="0.1"
+        required
+      />
+      <small class="text-muted">Potassium content in your soil</small>
+    </div>
+
+    <!-- pH Level Input -->
+    <div class="form-group">
+      <label for="ph"><i class="fas fa-flask-vial"></i> Soil pH Level</label>
+      <input
+        type="number"
+        class="form-control"
+        id="ph"
+        name="ph"
+        placeholder="e.g., 6.5"
+        step="0.1"
+        min="0"
+        max="14"
+        required
+      />
+      <small class="text-muted">pH scale: 0-14 (7 is neutral)</small>
+    </div>
+
+    <!-- Rainfall Input -->
+    <div class="form-group">
+      <label for="Rainfall"><i class="fas fa-cloud-rain"></i> Rainfall (mm)</label>
+      <input
+        type="number"
+        class="form-control"
+        id="Rainfall"
+        name="rainfall"
+        placeholder="e.g., 1000"
+        step="0.1"
+        required
+      />
+      <small class="text-muted">Annual rainfall in your area</small>
+    </div>
+
+    <!-- Location Selection -->
+    <div class="form-group">
+      <label for="State"><i class="fas fa-map-location-dot"></i> State/Region</label>
+      <select
+        id="sts"
+        name="stt"
+        class="form-select"
+        onchange="print_city('state', this.selectedIndex);"
+        required
+      >
+        <option selected disabled>Select your state...</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="City"><i class="fas fa-city"></i> City/District</label>
+      <select
+        id="state"
+        class="form-select"
+        name="city"
+        required
+      >
+        <option selected disabled>Select your city...</option>
+      </select>
+      <script language="javascript">
+        print_state("sts");
+      </script>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary">
+      <i class="fas fa-search"></i> Get Crop Recommendation
+    </button>
+  </form>
+</div>
+
+{% endblock %}

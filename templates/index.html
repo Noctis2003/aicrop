@@ -1,0 +1,93 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<!-- Hero Section -->
+<section class="hero">
+	<div class="hero-content">
+		<h1><i class="fas fa-seedling"></i> AgriBuddy</h1>
+		<p>Smart Farming Made Simple</p>
+		<p style="font-size: 1.1rem; color: rgba(255,255,255,0.9); margin-top: 1.5rem;">
+			Get data-driven decisions about your farming strategy using AI & Machine Learning
+		</p>
+	</div>
+</section>
+<!-- //Hero Section -->
+
+<!-- About Section -->
+<section class="about-section">
+	<div class="container">
+			<h2>About AgriBuddy</h2>
+		<div class="row align-items-center mt-5">
+			<div class="col-lg-6 col-md-12 mb-md-4">
+				<img src="{{ url_for('static', filename='images/core.jpg') }}" class="img-fluid about-img" alt="About AgriBuddy" />
+			</div>
+			<div class="col-lg-6 col-md-12 about-text">
+				<h3>Improving Agriculture, Improving Lives</h3>
+				<p>We harness the power of machine learning and deep learning technologies to revolutionize farming. Our platform helps you make informed decisions by analyzing soil conditions, environmental factors, and crop characteristics.</p>
+				<p><strong>Empower your farming with AI:</strong></p>
+				<ul style="list-style: none; padding-left: 0;">
+					<li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 0.5rem;"></i> Maximize crop yield with smart recommendations</li>
+					<li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 0.5rem;"></i> Optimize fertilizer usage and reduce costs</li>
+					<li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 0.5rem;"></i> Detect and prevent crop diseases early</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- //About Section -->
+
+<!-- Services Section -->
+<section class="py-5" style="background: var(--light-color);">
+	<div class="container py-5">
+		<h2 style="text-align: center; margin-bottom: 3rem;">Our Services</h2>
+		<div class="row g-4">
+			<!-- Crop Recommendation Card -->
+			<div class="col-lg-4 col-md-6">
+				<div class="service-card">
+					<div style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%); padding: 2rem; text-align: center;">
+						<i class="fas fa-leaf" style="font-size: 3rem; color: white;"></i>
+					</div>
+					<img src="{{ url_for('static', filename='images/s3.jpg') }}" class="img-fluid" alt="Crop Recommendation" />
+					<div class="card-body">
+						<h4><i class="fas fa-wheat"></i> Crop Recommendation</h4>
+						<p>Get personalized crop recommendations based on your soil nutrients (N, P, K), pH level, rainfall, and local weather conditions.</p>
+						<a href="{{ url_for('crop_recommend') }}" class="btn">Get Started</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Fertilizer Recommendation Card -->
+			<div class="col-lg-4 col-md-6">
+				<div class="service-card">
+					<div style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%); padding: 2rem; text-align: center;">
+						<i class="fas fa-flask" style="font-size: 3rem; color: white;"></i>
+					</div>
+					<img src="{{ url_for('static', filename='images/s2.jpg') }}" class="img-fluid" alt="Fertilizer Recommendation" />
+					<div class="card-body">
+						<h4><i class="fas fa-droplet"></i> Fertilizer Optimization</h4>
+						<p>Optimize fertilizer usage with AI-powered recommendations tailored to your crop type and soil composition. Save costs while maximizing yield.</p>
+						<a href="{{ url_for('fertilizer_recommendation') }}" class="btn">Get Started</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Disease Detection Card -->
+			<div class="col-lg-4 col-md-6 mx-auto mx-lg-0">
+				<div class="service-card">
+					<div style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%); padding: 2rem; text-align: center;">
+						<i class="fas fa-viruses" style="font-size: 3rem; color: white;"></i>
+					</div>
+					<img src="{{ url_for('static', filename='images/s4.jpg') }}" class="img-fluid" alt="Disease Detection" />
+					<div class="card-body">
+						<h4><i class="fas fa-triangle-exclamation"></i> Disease Detection</h4>
+						<p>Upload a leaf photo to instantly identify plant diseases using deep learning AI. Get treatment recommendations to save your crop.</p>
+						<a href="{{ url_for('disease_prediction') }}" class="btn">Get Started</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- //Services Section -->
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="form-section">
+  <h2><i class="fas fa-viruses"></i> Plant Disease Detection</h2>
+  <p style="text-align: center; color: #666; margin-bottom: 2rem;">
+    Upload a clear photo of a plant leaf to identify diseases and get treatment recommendations
+  </p>
+
+  <form method="POST" enctype="multipart/form-data">
+    <!-- Image Upload Section -->
+    <div class="form-group">
+      <label><i class="fas fa-image"></i> Upload Leaf Image</label>
+      <div class="image-upload" onclick="document.getElementById('fileInput').click();">
+        <input 
+          type="file" 
+          id="fileInput"
+          name="file" 
+          class="form-control-file" 
+          accept="image/*"
+          onchange="preview_image(event)"
+          required
+        />
+        <i class="fas fa-cloud-upload-alt" style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+        <p style="margin: 1rem 0; color: #666;">
+          <strong>Click to upload</strong> or drag and drop<br>
+          <small>PNG, JPG, GIF up to 10MB</small>
+        </p>
+      </div>
+    </div>
+
+    <!-- Image Preview -->
+    <div id="preview-container" style="text-align: center; margin: 2rem 0;">
+      <img id="output-image" class="preview-image" style="display: none;" />
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary" id="predictBtn" style="display: none;">
+      <i class="fas fa-microscope"></i> Analyze Plant Disease
+    </button>
+  </form>
+</div>
+
+<script type="text/javascript">
+  function preview_image(event) {
+    var reader = new FileReader();
+    reader.onload = function () {
+      var output = document.getElementById('output-image');
+      output.src = reader.result;
+      output.style.display = 'block';
+      document.getElementById('predictBtn').style.display = 'block';
+    }
+    reader.readAsDataURL(event.target.files[0]);
+  }
+
+  // Allow drag and drop
+  const imageUpload = document.querySelector('.image-upload');
+  
+  imageUpload.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    imageUpload.style.background = 'rgba(46, 204, 113, 0.1)';
+  });
+
+  imageUpload.addEventListener('dragleave', () => {
+    imageUpload.style.background = '';
+  });
+
+  imageUpload.addEventListener('drop', (e) => {
+    e.preventDefault();
+    const files = e.dataTransfer.files;
+    document.getElementById('fileInput').files = files;
+    preview_image({ target: { files: files } });
+  });
+</script>
+
+{% endblock %}

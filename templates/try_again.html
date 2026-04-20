@@ -1,0 +1,31 @@
+{% extends 'layout.html' %} {% block body %}
+
+
+
+
+<div class="result-section">
+  <div style="text-align: center;">
+    <i class="fas fa-exclamation-circle" style="font-size: 3rem; color: #ff9800; margin-bottom: 1rem; display: block;"></i>
+    <h2 style="color: #d32f2f; margin-bottom: 1rem;">Oops! Something Went Wrong</h2>
+    <p style="color: #666; margin-bottom: 2rem; font-size: 1.1rem;">
+      We couldn't process your request at the moment. This might be due to invalid input data or a temporary server issue.
+    </p>
+    
+    <div style="background: #fff3cd; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #ff9800; margin-bottom: 2rem;">
+      <p style="margin: 0; color: #333;">
+        <strong><i class="fas fa-lightbulb"></i> Tips:</strong><br>
+        • Check that all required fields are filled correctly<br>
+        • Ensure values are within valid ranges<br>
+        • Try selecting a valid city/location<br>
+        • For images, use clear, well-lit photos of plant leaves
+      </p>
+    </div>
+
+    <div style="text-align: center;">
+      <a href="{{ url_for('home') }}" class="btn btn-primary">
+        <i class="fas fa-home"></i> Back to Home
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'layout.html' %} {% block body %}
+
+
+
+
+
+
+<div class="result-section">
+  <h2 style="text-align: center; margin-bottom: 2rem;">
+    <i class="fas fa-check-circle" style="color: var(--primary-color);"></i> Fertilizer Recommendation
+  </h2>
+  
+  <div class="result-box">
+    <h3>Recommended Action</h3>
+    <div style="font-size: 1.1rem; line-height: 1.8; color: white;">
+      {{ recommendation }}
+    </div>
+  </div>
+
+  <div style="background: #e8f5e9; padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--primary-color);">
+    <p style="margin: 0; color: #333; line-height: 1.8;">
+      <strong><i class="fas fa-lightbulb"></i> Tip:</strong> Apply fertilizers gradually and monitor soil conditions regularly. Excess fertilizer can harm crops and contaminate water sources.
+    </p>
+  </div>
+
+  <div style="text-align: center; margin-top: 2rem;">
+    <a href="{{ url_for('fertilizer_recommendation') }}" class="btn btn-primary" style="margin-right: 1rem;">
+      <i class="fas fa-flask"></i> Get Another Recommendation
+    </a>
+    <a href="{{ url_for('home') }}" class="btn" style="background: #e0e0e0; color: #333; font-weight: 600; padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none;">
+      <i class="fas fa-home"></i> Back to Home
+    </a>
+  </div>
+</div>
+{% endblock %}

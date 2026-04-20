@@ -1,0 +1,108 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="form-section">
+  <h2><i class="fas fa-flask"></i> Fertilizer Recommendation</h2>
+  <p style="text-align: center; color: #666; margin-bottom: 2rem;">
+    Get optimized fertilizer recommendations based on your soil composition and crop type
+  </p>
+
+  <form method="POST" action="{{ url_for('fert_recommend') }}">
+    <!-- Nitrogen Input -->
+    <div class="form-group">
+      <label for="Nitrogen"><i class="fas fa-flask"></i> Nitrogen (mg/kg)</label>
+      <input
+        type="number"
+        class="form-control"
+        id="Nitrogen"
+        name="nitrogen"
+        placeholder="e.g., 50"
+        step="0.1"
+        required
+      />
+      <small class="text-muted">Current nitrogen level in your soil</small>
+    </div>
+
+    <!-- Phosphorous Input -->
+    <div class="form-group">
+      <label for="Phosphorous"><i class="fas fa-leaf"></i> Phosphorous (mg/kg)</label>
+      <input
+        type="number"
+        class="form-control"
+        id="Phosphorous"
+        name="phosphorous"
+        placeholder="e.g., 50"
+        step="0.1"
+        required
+      />
+      <small class="text-muted">Current phosphorous level in your soil</small>
+    </div>
+
+    <!-- Potassium Input -->
+    <div class="form-group">
+      <label for="Pottasium"><i class="fas fa-droplet"></i> Potassium (mg/kg)</label>
+      <input
+        type="number"
+        class="form-control"
+        id="Pottasium"
+        name="pottasium"
+        placeholder="e.g., 50"
+        step="0.1"
+        required
+      />
+      <small class="text-muted">Current potassium level in your soil</small>
+    </div>
+
+    <!-- Crop Selection -->
+    <div class="form-group">
+      <label for="crop"><i class="fas fa-wheat"></i> Crop Type</label>
+      <select
+        name="cropname"
+        class="form-select"
+        id="crop"
+        required
+      >
+        <option selected disabled>Select your crop...</option>
+        <optgroup label="Cereals">
+          <option>rice</option>
+          <option>maize</option>
+        </optgroup>
+        <optgroup label="Pulses">
+          <option>chickpea</option>
+          <option>kidneybeans</option>
+          <option>pigeonpeas</option>
+          <option>mothbeans</option>
+          <option>mungbean</option>
+          <option>blackgram</option>
+          <option>lentil</option>
+        </optgroup>
+        <optgroup label="Fruits">
+          <option>pomegranate</option>
+          <option>banana</option>
+          <option>mango</option>
+          <option>grapes</option>
+          <option>watermelon</option>
+          <option>muskmelon</option>
+          <option>apple</option>
+          <option>orange</option>
+          <option>papaya</option>
+        </optgroup>
+        <optgroup label="Cash Crops">
+          <option>coconut</option>
+          <option>cotton</option>
+          <option>jute</option>
+          <option>coffee</option>
+        </optgroup>
+      </select>
+      <small class="text-muted">Select the crop you plan to grow</small>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary">
+      <i class="fas fa-flask-vial"></i> Get Fertilizer Recommendation
+    </button>
+  </form>
+</div>
+
+{% endblock %}
